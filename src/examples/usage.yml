@@ -1,0 +1,20 @@
+description: >
+  Orb usage.
+
+usage:
+  version: 2.1
+  orbs:
+    node: iziwork/node@1.0.0
+  jobs:
+    executor: node/default
+    steps:
+      - node/restore-workspace
+      - run:
+          command: npm run test
+  workflows:
+    test:
+      jobs:
+        - node/checkout-install-and-persist
+        - test:
+            requires:
+              - node/checkout-install-and-persist

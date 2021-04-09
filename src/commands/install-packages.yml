@@ -1,0 +1,12 @@
+description: >
+  Install the package dependencies.
+
+parameters:
+  app-dir:
+    type: string
+    default: "."
+    description: Path to the directory containing your package.json file. Not needed if package.json lives in the root.
+
+steps:
+  - circle-node/install-packages:
+      app-dir: <<parameters.app-dir>>

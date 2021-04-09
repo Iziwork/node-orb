@@ -1,0 +1,10 @@
+version: 2.1
+
+description: >
+  Install the Node.js and npm versions specified in the `engines` field of the `package.json`.
+
+display:
+  source_url: "https://github.com/Iziwork/node-orb"
+
+orbs:
+  circle-node: circleci/node@4.2.1

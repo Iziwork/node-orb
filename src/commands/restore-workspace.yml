@@ -1,0 +1,14 @@
+description: >
+  Restore the workspace persisted by the checkout-install-and-persist job, with node, npm and the packages restored.
+
+parameters:
+  app-dir:
+    type: string
+    default: "."
+    description: Path to the directory containing your package.json file. Not needed if package.json lives in the root.
+
+steps:
+  - attach_workspace:
+      at: .
+  - install-node-npm:
+      app-dir: <<parameters.app-dir>>

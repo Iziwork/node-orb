@@ -1,0 +1,14 @@
+description: >
+  Install the node and npm versions setup in the package.json.
+
+parameters:
+  app-dir:
+    type: string
+    default: "."
+    description: Path to the directory containing your package.json file. Not needed if package.json lives in the root.
+
+steps:
+  - run:
+      name: Install node and npm
+      command: <<include(scripts/install-node-npm.sh)>>
+      working_directory: <<parameters.app-dir>>
