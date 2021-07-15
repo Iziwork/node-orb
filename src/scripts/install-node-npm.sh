@@ -19,7 +19,9 @@ install_nvm() {
 
 install_node() {
   local pkg_node_version
-  pkg_node_version=$(jq -r ".engines.node" package.json)
+  pkg_node_version=$(jq -r ".engines.node | select (.!=null)" package.json )
+
+  if [ -z "$pkg_node_version" ]; then { echo "engines.node seems to be empty in your package.json"; exit 1; } fi
 
   if command -v node > /dev/null 2>&1; then
     if node -v | grep "$pkg_node_version" > /dev/null 2>&1; then
