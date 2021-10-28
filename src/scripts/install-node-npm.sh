@@ -31,6 +31,7 @@ install_node() {
   nvm install "$pkg_node_version"
   nvm alias default "$pkg_node_version"
   echo 'nvm use default &>/dev/null' >> "$BASH_ENV"
+  nvm use default
 }
 
 install_npm() {
