@@ -49,7 +49,7 @@ workflows:
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:
           orb-name: iziwork/node
-          context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
+          context: dev-orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
             - orb-tools/lint
             - orb-tools/pack
@@ -59,7 +59,7 @@ workflows:
       # dev:${CIRCLE_SHA1:0:7} version of your orb
       - orb-tools/trigger-integration-tests-workflow:
           name: trigger-integration-dev
-          context: orb-publishing
+          context: dev-orb-publishing
           requires:
             - orb-tools/publish-dev
 
@@ -80,7 +80,7 @@ workflows:
       # e.g. [semver:patch] will cause a patch version to be published.
       - orb-tools/dev-promote-prod-from-commit-subject:
           orb-name: iziwork/node
-          context: orb-publishing
+          context: dev-orb-publishing
           add-pr-comment: false
           fail-if-semver-not-indicated: true
           publish-version-tag: false
