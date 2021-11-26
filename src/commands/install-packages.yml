@@ -7,6 +7,7 @@ parameters:
     default: "."
     description: Path to the directory containing your package.json file. Not needed if package.json lives in the root.
   pkg-manager:
+    type: enum
     default: npm
     description: Package manager to use.
     enum:
@@ -17,4 +18,4 @@ parameters:
 steps:
   - circle-node/install-packages:
       app-dir: <<parameters.app-dir>>
-      pkg-manager: <<paraneters.pkg-manager>>
+      pkg-manager: <<parameters.pkg-manager>>
