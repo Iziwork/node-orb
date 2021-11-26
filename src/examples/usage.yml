@@ -6,11 +6,12 @@ usage:
   orbs:
     node: iziwork/node@1.0.0
   jobs:
-    executor: node/default
-    steps:
-      - node/restore-workspace
-      - run:
-          command: npm run test
+    test:
+      executor: node/default
+      steps:
+        - node/restore-workspace
+        - run:
+            command: npm run test
   workflows:
     test:
       jobs:
