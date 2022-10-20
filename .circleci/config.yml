@@ -24,8 +24,7 @@ workflows:
           vcs-type: << pipeline.project.type >>
           requires:
             [orb-tools/lint, orb-tools/review, orb-tools/pack, shellcheck/check]
-          # Use a context to hold your publishing token.
-          context: <publishing-context>
+          context: sre-orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           filters: *filters
       # Triggers the next workflow in the Orb Development Kit.
       - orb-tools/continue:

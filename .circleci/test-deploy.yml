@@ -34,7 +34,7 @@ workflows:
           requires:
             - orb-tools/pack
             - command-tests
-          context: <publishing-context>
+          context: sre-orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           filters:
             branches:
               ignore: /.*/
