@@ -50,6 +50,7 @@ workflows:
       - orb-tools/publish:
           orb-name: iziwork/node
           pub-type: dev
+          vcs-type: <<pipeline.project.type>>
           context: sre-orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
             - orb-tools/lint
