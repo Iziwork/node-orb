@@ -75,7 +75,7 @@ install_corepack() {
   fi
 
   corepack enable
-  corepack prepare
+  corepack prepare || true
 }
 
 # Will not run if sourced for bats-core tests.
