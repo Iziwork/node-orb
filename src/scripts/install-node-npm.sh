@@ -8,7 +8,7 @@ install_nvm() {
     return
   fi
 
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
   # shellcheck disable=SC2016
   echo 'export NVM_DIR="$HOME/.nvm"' >> "$BASH_ENV";
   # shellcheck disable=SC2016
@@ -75,12 +75,12 @@ install_corepack() {
   fi
 
   corepack enable
-  corepack prepare
+  corepack prepare || true
 }
 
 # Will not run if sourced for bats-core tests.
 ORB_TEST_ENV="bats-core"
-if [ "${0#*$ORB_TEST_ENV}" == "$0" ]; then
+if [ "${0#*"$ORB_TEST_ENV"}" == "$0" ]; then
   install_nvm
   install_node
   install_npm

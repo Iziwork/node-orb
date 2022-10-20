@@ -4,7 +4,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    node: iziwork/node@1.0.0
+    node: iziwork/node@1.2.0
   jobs:
     test:
       executor: node/default

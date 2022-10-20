@@ -7,4 +7,4 @@ display:
   source_url: "https://github.com/Iziwork/node-orb"
 
 orbs:
-  circle-node: circleci/node@4.7.0
+  circle-node: circleci/node@5

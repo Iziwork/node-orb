@@ -1,4 +1,4 @@
 description: >
   This is the executor that should be used when using this orb.
 docker:
-  - image: cimg/base:2021.11
+  - image: cimg/base:2022.10
