@@ -8,9 +8,11 @@ install_nvm() {
     return
   fi
 
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+  mkdir -p "$PWD"/.nvm
+  export NVM_DIR=$PWD/.nvm
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
   # shellcheck disable=SC2016
-  echo 'export NVM_DIR="$HOME/.nvm"' >> "$BASH_ENV";
+  echo 'export NVM_DIR="$PWD/.nvm"' >> "$BASH_ENV";
   # shellcheck disable=SC2016
   echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> "$BASH_ENV";
   # shellcheck disable=SC1090
