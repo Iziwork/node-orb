@@ -8,9 +8,10 @@ install_nvm() {
     return
   fi
 
+  NVM_VERSION='0.39.5'
   mkdir -p "$PWD"/.nvm
   export NVM_DIR=$PWD/.nvm
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash
   # shellcheck disable=SC2016
   echo 'export NVM_DIR="$PWD/.nvm"' >> "$BASH_ENV";
   # shellcheck disable=SC2016
