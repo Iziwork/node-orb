@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+# we force curl to use http1.1 to prevent http2 errors on CircleCI
+shopt -s expand_aliases
+alias curl='curl --http1.1'
+
 install_nvm() {
   if command -v nvm &> /dev/null; then
     echo "nvm is already installed. Skipping nvm install.";
