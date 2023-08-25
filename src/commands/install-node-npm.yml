@@ -9,6 +9,17 @@ parameters:
 
 steps:
   - run:
+      name: Save node version
+      command: <<include(scripts/save-node-version.sh)>>
+      working_directory: <<parameters.app-dir>>
+  - restore_cache:
+      keys:
+        - node-{{ checksum "/tmp/node-version" }}
+  - run:
       name: Install node and npm
       command: <<include(scripts/install-node-npm.sh)>>
       working_directory: <<parameters.app-dir>>
+  - save_cache:
+      key: node-{{ checksum "/tmp/node-version" }}
+      paths:
+        - ~/.nvm/versions/
